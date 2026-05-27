@@ -1,0 +1,370 @@
+:root { 
+
+    /* Brand colors */ 
+  
+    --clr-fire:       #E85D04;   /* Orange — main accent            */ 
+    --clr-fire-glow:  rgba(232, 93, 4, 0.35); 
+    --clr-soul:       #7B2FBE;   /* Purple — secondary accent       */ 
+    --clr-water:      #2563EB;   /* Blue — cool contrast            */
+  
+    /* Backgrounds */ 
+  
+    --clr-bg:         #0A0A1A;   /* Very dark — page background     */ 
+    --clr-surface:    #12122A;   /* Slightly lighter — card surface */ 
+    --clr-surface-2:  #1A1A3A;   /* Even lighter — hover states     */ 
+  
+    /* Text */ 
+  
+    --clr-text:       #E8E6F0;   /* Off-white — main text           */ 
+    --clr-muted:      #8E8CB0;   /* Muted purple-grey               */ 
+    --clr-border:     #2D2D5A;   /* Subtle border                   */ 
+  
+    /* Typography */ 
+  
+    --font-display: 'Cinzel Decorative', serif;   /* Headings       */ 
+    --font-body:    'Nunito', sans-serif;          /* Body text      */
+  
+    /* Spacing & shape */ 
+  
+    --radius-sm:  6px; 
+    --radius-md:  12px; 
+    --radius-lg:  20px; 
+  
+    /* Transitions */ 
+  
+    --transition: 0.25s ease;
+}
+    /* Whenever you open the file, it start at the same place */ 
+
+*, *::before, *::after { 
+
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+  } 
+  html { 
+    scroll-behavior: smooth;  /* Makes anchor links scroll smoothly */ 
+  }
+  /* Base styles for the whole page */ 
+
+body {  
+
+    font-family: var(--font-body); /* Uses Nunito Sans Serif*/ 
+   background-color: var(--clr-bg); 
+    color: var(--clr-text); 
+    line-height: 1.7; 
+    font-size: 16px; 
+  
+  }  
+  a { 
+    text-decoration: none;   /* Remove default underline */ 
+    color: inherit;  /* Color heredado del body */ 
+    text-align: center;
+  } 
+   
+  ul { 
+   list-style: none;   /* Remove default bullet points */ 
+  } 
+  /* ---------------------------------------------------------------- 
+
+   5. HEADER & NAVIGATION 
+
+   ---------------------------------------------------------------- 
+
+   position: sticky keeps the header visible as you scroll. 
+
+   The navbar uses FLEXBOX to place logo left, links right. 
+
+---------------------------------------------------------------- */ 
+
+header { 
+
+   position: sticky; 
+  
+   top: 0; 
+  
+   z-index: 100; 
+  
+   background-color: rgba(10, 10, 26, 0.92); 
+  
+   backdrop-filter: blur(12px);  /* Frosted glass effect   */ 
+  
+   border-bottom: 1px solid var(--clr-border); 
+  
+  } 
+  
+  .navbar { 
+  
+   /* FLEXBOX: places .logo and .nav-links on the same row      */ 
+  
+   display: flex; 
+  
+   justify-content: space-between;  /* Logo ←————————→ Links  */ 
+  
+   align-items: center; /* Vertically centred       */ 
+  
+   max-width: 1100px; 
+  
+   margin: 0 auto; 
+  
+   padding: 18px 24px; 
+  
+  } 
+  
+  .logo { 
+  
+    display: flex; 
+  
+    align-items: center; 
+  
+    gap: 10px; 
+  
+  } 
+  
+  .logo-flame { font-size: 22px; } 
+  
+  .logo-text { 
+  
+    font-family: var(--font-display); 
+  
+    font-size: 16px; 
+  
+    color: var(--clr-fire); 
+  
+    letter-spacing: 1px; 
+  
+  } 
+  
+  /* Nav links list — also a flex row */ 
+  
+  .nav-links { 
+  
+    display: flex; 
+  
+    gap: 36px; 
+  
+  } 
+  
+  .nav-links a { 
+  
+    font-size: 14px; 
+  
+    font-weight: 600; 
+  
+    color: var(--clr-muted); 
+  
+    letter-spacing: 0.5px; 
+  
+    transition: color var(--transition); 
+  
+    position: relative; 
+  
+    padding-bottom: 4px; 
+  
+  } 
+  
+  /* Animated underline on hover */ 
+  
+  .nav-links a::after { 
+  
+    content: ''; 
+  
+    position: absolute; 
+  
+    bottom: 0; 
+  
+    left: 0; 
+  
+    width: 0; 
+  
+    height: 2px; 
+  
+    background-color: var(--clr-fire); 
+  
+    transition: width var(--transition); 
+  
+  } 
+  
+  .nav-links a:hover { color: var(--clr-text); } 
+  
+  .nav-links a:hover::after { width: 100%; } 
+  
+  /*---------------------------------------------------------------- 
+
+   6. HERO SECTION 
+
+   ---------------------------------------------------------------- 
+
+   The big intro area. Uses a gradient background and decorative 
+
+   circles to create atmosphere. 
+
+---------------------------------------------------------------- */ 
+
+ 
+
+/*Defines the banner’s spacing, centering.*/ 
+
+.hero { 
+
+  position: relative; 
+
+  overflow: hidden; 
+
+  padding: 140px 24px 120px; 
+
+  text-align: center; 
+
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, #1A0A3A 0%, var(--clr-bg) 70%); 
+
+} 
+
+ 
+
+/* Decorative blurred circles in the background */ 
+
+.hero-bg-circle { 
+
+  position: absolute; 
+
+  border-radius: 50%; 
+
+  filter: blur(80px); 
+
+  opacity: 0.3; 
+
+  pointer-events: none;   /* Can't be clicked */ 
+
+} 
+
+ 
+
+.hero-bg-circle--1 { 
+
+  width: 500px; 
+
+  height: 500px; 
+
+  background: var(--clr-fire); 
+
+  top: -200px; 
+
+  left: -100px; 
+
+} 
+
+ 
+
+.hero-bg-circle--2 { 
+
+  width: 400px; 
+
+  height: 400px; 
+
+  background: var(--clr-soul); 
+
+  top: -100px; 
+
+  right: -100px; 
+
+} 
+
+ 
+
+.hero-content { 
+
+  position: relative;   /* Sits above the background circles */ 
+
+  max-width: 720px; 
+
+  margin: 0 auto; 
+
+} 
+
+ 
+
+.hero-eyebrow { 
+
+  font-size: 12px; 
+
+  font-weight: 700; 
+
+  letter-spacing: 4px; 
+
+  text-transform: uppercase; 
+
+  color: var(--clr-fire); 
+
+  margin-bottom: 16px; 
+
+} 
+
+ 
+
+.hero-name { 
+
+  font-family: var(--font-display); 
+
+  font-size: clamp(36px, 7vw, 72px); 
+
+  color: var(--clr-text); 
+
+  line-height: 1.1; 
+
+  margin-bottom: 12px; 
+
+  text-shadow: 0 0 40px var(--clr-fire-glow); 
+
+} 
+
+ 
+
+.hero-subtitle { 
+
+  font-size: 16px; 
+
+  color: var(--clr-soul); 
+
+  letter-spacing: 2px; 
+
+  margin-bottom: 28px; 
+
+} 
+
+ 
+
+.hero-quote { 
+
+  font-size: 17px; 
+
+  font-style: italic; 
+
+  color: var(--clr-muted); 
+
+  max-width: 540px; 
+
+  margin: 0 auto 40px; 
+
+  padding: 0 16px; 
+
+  border-left: 3px solid var(--clr-fire); 
+
+  text-align: left; 
+
+  line-height: 1.8; 
+
+} 
+
+ 
+
+.hero-buttons { 
+
+  display: flex; 
+
+  gap: 16px; 
+
+  justify-content: center; 
+
+  flex-wrap: wrap; 
+
+} 
