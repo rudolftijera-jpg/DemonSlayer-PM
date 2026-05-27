@@ -2,16 +2,16 @@
 
     /* Brand colors */ 
   
-    --clr-fire:       #E85D04;   /* Orange — main accent            */ 
-    --clr-fire-glow:  rgba(232, 93, 4, 0.35); 
+    --clr-fire:       #04d5e8;   /* Orange — main accent            */ 
+    --clr-fire-glow:  rgba(91, 4, 232, 0.548); 
     --clr-soul:       #7B2FBE;   /* Purple — secondary accent       */ 
     --clr-water:      #2563EB;   /* Blue — cool contrast            */
   
     /* Backgrounds */ 
   
-    --clr-bg:         #0A0A1A;   /* Very dark — page background     */ 
-    --clr-surface:    #12122A;   /* Slightly lighter — card surface */ 
-    --clr-surface-2:  #1A1A3A;   /* Even lighter — hover states     */ 
+    --clr-bg:         #060659;   /* Very dark — page background     */ 
+    --clr-surface:    #9292fa;   /* Slightly lighter — card surface */ 
+    --clr-surface-2:  #2424e0;   /* Even lighter — hover states     */ 
   
     /* Text */ 
   
@@ -53,7 +53,7 @@ body {
    background-color: var(--clr-bg); 
     color: var(--clr-text); 
     line-height: 1.7; 
-    font-size: 16px; 
+    font-size: 20px; 
   
   }  
   a { 
@@ -65,15 +65,123 @@ body {
   ul { 
    list-style: none;   /* Remove default bullet points */ 
   } 
-  /* ---------------------------------------------------------------- 
+  
 
-   5. HEADER & NAVIGATION 
 
-   ---------------------------------------------------------------- 
+  /* Basic section spacing */ 
 
-   position: sticky keeps the header visible as you scroll. 
+.section { 
 
-   The navbar uses FLEXBOX to place logo left, links right. 
+   padding: 90px 24px; 
+  
+  } 
+  
+   
+  
+  /* Dark background variant — alternates with the default */ 
+  
+  .section-dark { 
+  
+   background-color: var(--clr-surface); 
+} 
+
+ 
+
+/* Centres content and limits maximum width */ 
+
+.section-inner { 
+
+ max-width: 1100px; 
+
+ margin: 0 auto; 
+
+} 
+
+ 
+
+.section-inner--narrow { 
+
+ max-width: 680px; 
+
+ margin: 0 auto; 
+
+} 
+
+ 
+
+/* Small uppercase label above headings */ 
+
+.section-label { 
+
+ display: block; 
+
+ font-size: 30px; 
+
+ font-weight: 700; 
+
+ letter-spacing: 3px; 
+
+ text-transform: uppercase; 
+
+ color: var(--clr-fire); 
+
+ margin-bottom: 10px; 
+
+} 
+
+ 
+
+.section-label--center { text-align: center; } 
+
+ 
+
+/* Main section heading */ 
+
+.section-title { 
+
+ font-family: var(--font-display); 
+
+ font-size: clamp(22px, 4vw, 36px); /* Scales with screen width */ 
+
+ color: var(--clr-text); 
+
+ margin-bottom: 16px; 
+
+} 
+
+ 
+
+.section-title--center { text-align: center; } 
+
+ 
+
+/* Intro paragraph under a section heading */ 
+
+.section-intro { 
+
+ text-align: center; 
+
+ color: var(--clr-muted); 
+
+ max-width: 680px; 
+
+ margin: 0 auto 52px; 
+
+ font-size: 50px; 
+
+ line-height: 1.8; 
+
+} 
+
+/* ---------------------------------------------------------------- 
+
+ 5. HEADER & NAVIGATION 
+
+ ---------------------------------------------------------------- 
+
+ position: sticky keeps the header visible as you scroll. 
+
+ The navbar uses FLEXBOX to place logo left, links right. 
 
 ---------------------------------------------------------------- */ 
 
@@ -87,7 +195,7 @@ header {
   
    background-color: rgba(10, 10, 26, 0.92); 
   
-   backdrop-filter: blur(12px);  /* Frosted glass effect   */ 
+   backdrop-filter: blur(12px);      /* Frosted glass effect  */ 
   
    border-bottom: 1px solid var(--clr-border); 
   
@@ -95,13 +203,13 @@ header {
   
   .navbar { 
   
-   /* FLEXBOX: places .logo and .nav-links on the same row      */ 
+   /* FLEXBOX: places .logo and .nav-links on the same row   */ 
   
    display: flex; 
   
-   justify-content: space-between;  /* Logo ←————————→ Links  */ 
+   justify-content: space-between;  /* Logo ←————————→ Links */ 
   
-   align-items: center; /* Vertically centred       */ 
+   align-items: center;       /* Vertically centred    */ 
   
    max-width: 1100px; 
   
@@ -113,25 +221,25 @@ header {
   
   .logo { 
   
-    display: flex; 
+   display: flex; 
   
-    align-items: center; 
+   align-items: center; 
   
-    gap: 10px; 
+   gap: 10px; 
   
   } 
   
-  .logo-flame { font-size: 22px; } 
+  .logo-flame { font-size: 60px; } 
   
   .logo-text { 
   
-    font-family: var(--font-display); 
+   font-family: var(--font-display); 
   
-    font-size: 16px; 
+   font-size: 50px; 
   
-    color: var(--clr-fire); 
+   color: var(--clr-fire); 
   
-    letter-spacing: 1px; 
+   letter-spacing: 1px; 
   
   } 
   
@@ -139,27 +247,27 @@ header {
   
   .nav-links { 
   
-    display: flex; 
+   display: flex; 
   
-    gap: 36px; 
+   gap: 36px; 
   
   } 
   
   .nav-links a { 
   
-    font-size: 14px; 
+   font-size: 40xpx; 
   
-    font-weight: 600; 
+   font-weight: 600; 
   
-    color: var(--clr-muted); 
+   color: var(--clr-muted); 
   
-    letter-spacing: 0.5px; 
+   letter-spacing: 0.5px; 
   
-    transition: color var(--transition); 
+   transition: color var(--transition); 
   
-    position: relative; 
+   position: relative; 
   
-    padding-bottom: 4px; 
+   padding-bottom: 4px; 
   
   } 
   
@@ -167,28 +275,28 @@ header {
   
   .nav-links a::after { 
   
-    content: ''; 
+   content: ''; 
   
-    position: absolute; 
+   position: absolute; 
   
-    bottom: 0; 
+   bottom: 0; 
   
-    left: 0; 
+   left: 0; 
   
-    width: 0; 
+   width: 0; 
   
-    height: 2px; 
+   height: 2px; 
   
-    background-color: var(--clr-fire); 
+   background-color: var(--clr-fire); 
   
-    transition: width var(--transition); 
+   transition: width var(--transition); 
   
   } 
   
   .nav-links a:hover { color: var(--clr-text); } 
   
   .nav-links a:hover::after { width: 100%; } 
-  
+
   /*---------------------------------------------------------------- 
 
    6. HERO SECTION 
@@ -285,7 +393,7 @@ header {
 
 .hero-eyebrow { 
 
-  font-size: 12px; 
+  font-size: 30px; 
 
   font-weight: 700; 
 
@@ -305,7 +413,7 @@ header {
 
   font-family: var(--font-display); 
 
-  font-size: clamp(36px, 7vw, 72px); 
+  font-size: 120px; 
 
   color: var(--clr-text); 
 
@@ -321,7 +429,7 @@ header {
 
 .hero-subtitle { 
 
-  font-size: 16px; 
+  font-size: 32px; 
 
   color: var(--clr-soul); 
 
@@ -335,15 +443,15 @@ header {
 
 .hero-quote { 
 
-  font-size: 17px; 
+  font-size: 29px; 
 
   font-style: italic; 
 
   color: var(--clr-muted); 
 
-  max-width: 540px; 
+  max-width: 3000px; 
 
-  margin: 0 auto 40px; 
+  margin: 0 auto 100px; 
 
   padding: 0 16px; 
 
